@@ -1,20 +1,18 @@
 import {FC} from 'react';
-import {View, FlatList} from 'react-native';
-import {iOSColors, human} from 'react-native-typography';
+import {View, FlatList, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import EStyleSheet from 'react-native-extended-stylesheet';
 
 import {detailsScreen} from 'src/routes';
 import Link from 'src/components/Link';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
-    gap: '0.5rem',
-    borderBottomColor: iOSColors.midGray,
-    borderBottomWidth: 1,
-    paddingHorizontal: '1rem',
-    paddingVertical: '0.5rem',
+    gap: 8.5,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+    paddingHorizontal: 17,
+    paddingVertical: 8.5,
   },
 });
 
@@ -36,14 +34,8 @@ const Item: FC<TItem> = ({data}) => {
 
   return (
     <View style={styles.itemContainer}>
-      <Icon
-        name="logo-github"
-        color={iOSColors.black}
-        size={human.bodyObject.fontSize}
-      />
-      <Link
-        to={{screen: detailsScreen, params: {repo, owner}}}
-        textStyle={human.body}>
+      <Icon name="logo-github" color={'black'} size={16} />
+      <Link to={{screen: detailsScreen, params: {repo, owner}}}>
         {owner}/{repo}
       </Link>
     </View>

@@ -1,8 +1,7 @@
 import {FC} from 'react';
-import {View, ActivityIndicator} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',

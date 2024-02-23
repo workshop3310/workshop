@@ -1,29 +1,30 @@
 import type {FC} from 'react';
 import type {components} from '@octokit/openapi-types';
-import {View, Text} from 'react-native';
-import {human, iOSColors} from 'react-native-typography';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import {View, Text, StyleSheet} from 'react-native';
 
 import State from './State';
 import Comments from './Comments';
-import Labels from './Labels';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    gap: '0.5rem',
+    gap: 8.5,
     flexDirection: 'row',
-    borderBottomColor: iOSColors.midGray,
-    borderBottomWidth: 1,
-    paddingHorizontal: '1rem',
-    paddingVertical: '0.5rem',
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+    paddingHorizontal: 17,
+    paddingVertical: 8.5,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: 'black',
   },
   issueBody: {
     flex: 1,
-    gap: '0.5rem',
+    gap: 8.5,
   },
   footNote: {
-    ...human.footnoteObject,
-    color: iOSColors.gray,
+    color: 'gray',
   },
 });
 
@@ -44,8 +45,7 @@ const Issue: FC<TIssue> = ({issue}) => {
     <View style={styles.container}>
       <State state={issue.state} />
       <View style={styles.issueBody}>
-        <Text style={human.title3}>{issue.title}</Text>
-        <Labels labels={issue.labels} />
+        <Text style={styles.title}>{issue.title}</Text>
         <Text style={styles.footNote}>
           #{issue.number} opened on {date}
           {issue.user ? ` by ${issue.user.login}` : ''}

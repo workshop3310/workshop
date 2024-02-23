@@ -1,30 +1,31 @@
 import type {FC} from 'react';
 import type {components} from '@octokit/openapi-types';
-import {Text, View} from 'react-native';
-import {human, iOSColors, systemWeights} from 'react-native-typography';
+import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import EStyleSheet from 'react-native-extended-stylesheet';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    gap: '0.5rem',
+    gap: 8.5,
     flexDirection: 'row',
-    borderBottomColor: iOSColors.midGray,
-    borderBottomWidth: 1,
-    paddingHorizontal: '1rem',
-    paddingVertical: '0.5rem',
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+    paddingHorizontal: 17,
+    paddingVertical: 8.5,
   },
   body: {
     flex: 1,
-    gap: '0.5rem',
+    gap: 8.5,
   },
   hash: {
-    ...human.footnoteObject,
-    color: iOSColors.gray,
+    color: 'gray',
+  },
+  boldText: {
+    fontWeight: '600',
   },
   text: {
-    ...human.bodyObject,
-    ...systemWeights.light,
+    fontWeight: 'normal',
+    color: 'black',
+    fontSize: 16,
   },
 });
 
@@ -47,19 +48,14 @@ const Commit: FC<TCommit> = ({commit}) => {
   return (
     <View style={styles.container}>
       <View>
-        <Icon
-          name="git-commit-outline"
-          size={human.bodyObject.fontSize}
-          color={iOSColors.gray}
-        />
+        <Icon name="git-commit-outline" size={20} color={'gray'} />
       </View>
       <View style={styles.body}>
-        <Text style={human.headline}>{label}</Text>
+        <Text style={[styles.text, styles.boldText]}>{label}</Text>
         <Text style={styles.hash}>{commit.sha.substring(0, 8)}</Text>
         <Text style={styles.text}>
-          <Text style={systemWeights.semibold}>{commit.author?.login}</Text>{' '}
-          authored and{' '}
-          <Text style={systemWeights.semibold}>{commit.committer?.login}</Text>{' '}
+          <Text style={styles.boldText}>{commit.author?.login}</Text> authored
+          and <Text style={styles.boldText}>{commit.committer?.login}</Text>{' '}
           committed on <Text>{date}</Text>
         </Text>
       </View>

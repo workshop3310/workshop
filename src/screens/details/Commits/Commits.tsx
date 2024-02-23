@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
 
 import client from 'src/client';

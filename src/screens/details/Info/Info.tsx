@@ -1,8 +1,6 @@
 import {FC} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
-import {human, iOSColors} from 'react-native-typography';
-import EStyleSheet from 'react-native-extended-stylesheet';
 
 import client from 'src/client';
 import Error from 'src/components/Error/Error';
@@ -11,19 +9,23 @@ import Loading from 'src/components/Loading/Loading';
 import useDetailsParams from '../ParamsContext';
 import Property from './Property';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    gap: '0.5rem',
-    paddingHorizontal: '0.5rem',
+    gap: 8.5,
+    paddingHorizontal: 8.5,
   },
   description: {
-    borderLeftColor: iOSColors.midGray,
+    borderLeftColor: 'gray',
     borderLeftWidth: 1,
-    paddingLeft: '0.25rem',
+    paddingLeft: 4.25,
   },
   descriptionText: {
-    ...human.title3Object,
-    color: iOSColors.gray,
+    fontSize: 20,
+    color: 'gray',
+  },
+  title: {
+    color: 'black',
+    fontSize: 30,
   },
 });
 
@@ -65,7 +67,7 @@ const Info: FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={human.title1}>{data.name}</Text>
+      <Text style={styles.title}>{data.name}</Text>
       <View style={styles.description}>
         <Text style={styles.descriptionText}>{data.description}</Text>
       </View>

@@ -1,5 +1,4 @@
 import type {FC} from 'react';
-import {human, iOSColors} from 'react-native-typography';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -9,16 +8,12 @@ interface TState {
 const State: FC<TState> = ({state}) => {
   const [statusIcon, statuscolor] =
     state === 'open'
-      ? ['disc-outline', iOSColors.green]
-      : ['checkmark-circle-outline', iOSColors.purple];
+      ? ['disc-outline', 'green']
+      : ['checkmark-circle-outline', 'purple'];
 
   return (
     <View>
-      <Icon
-        name={statusIcon}
-        size={human.bodyObject.fontSize}
-        color={statuscolor}
-      />
+      <Icon name={statusIcon} size={16} color={statuscolor} />
     </View>
   );
 };

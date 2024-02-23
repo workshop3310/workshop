@@ -1,10 +1,8 @@
 import type {FC} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {iOSColors, human} from 'react-native-typography';
-import EStyleSheet from 'react-native-extended-stylesheet';
 
-const styles = EStyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -14,12 +12,11 @@ const styles = EStyleSheet.create({
     backgroundColor: '#fdeded',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: '0.5rem',
-    padding: '0.5rem',
-    borderRadius: '0.25rem',
+    gap: 8.5,
+    padding: 8.5,
+    borderRadius: 4.25,
   },
   text: {
-    ...human.bodyObject,
     color: '#5f2120',
   },
 });
@@ -32,11 +29,7 @@ const Error: FC<TProps> = ({children}) => {
   return (
     <View style={styles.container}>
       <View style={styles.frame}>
-        <Icon
-          name="alert-circle-outline"
-          color={iOSColors.red}
-          size={styles._text.fontSize}
-        />
+        <Icon name="alert-circle-outline" color={'red'} size={16} />
         <Text style={styles.text}>{children}</Text>
       </View>
     </View>

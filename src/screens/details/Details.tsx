@@ -2,7 +2,6 @@ import {useMemo} from 'react';
 import {useRoute, RouteProp} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 import {DetailsParamsProvider} from './ParamsContext';
 import Info from './Info/Info';
 import Issues from './Issues/Issues';
